@@ -1,7 +1,10 @@
 eval %sh{ kak-lsp --kakoune -s $kak_session }
 
-colorscheme cherry
-
+# ui
+colorscheme undoo
+set-option -add  global ui_options terminal_assistant=none
+set-option -add  global ui_options terminal_set_title=true
+set-option -add  global ui_options terminal_status_on_top=true
 # Plugins
 source "%val{config}/bundle/kak-bundle/rc/kak-bundle.kak"
 bundle-noload kak-bundle https://codeberg.org/jdugan6240/kak-bundle
@@ -32,8 +35,7 @@ enable-auto-pairs
 bundle kakoune-focus https://github.com/caksoylar/kakoune-focus
 
 bundle powerline-kak https://github.com/andreyorst/powerline.kak 
-powerline-start
-
+powerline-start 
 
 bundle surround https://github.com/h-youhei/kakoune-surround
 
@@ -65,10 +67,12 @@ hook -group lsp-language-id global BufCreate .*[.]vue %{
    set-option buffer lsp_language_id vue 
 }
 
+# Highlights
 # Columns Highlighting
 add-highlighter global/ show-whitespaces -indent '▏' -spc ' '
 # Line Number Highlighting
-add-highlighter global/ number-lines -hlcursor -separator '  '
+add-highlighter global/ number-lines -hlcursor  -separator '     ' -min-digits 7
+add-highlighter global/ show-matching
 
 # User Keymaps
 map global normal I K -docstring 'extend move up'
@@ -82,9 +86,16 @@ map global normal j h -docstring 'move left'
 map global normal k j -docstring 'move down'
 map global normal l l -docstring 'move right'
 
+map global normal '<a-k>' '<a-j>'
+map global normal '<a-j>' '<a-h>'
+
 map global user b ':buffer-previous<ret>' -docstring 'previous buffer'
 map global user n ':buffer-next<ret>' -docstring 'next buffer'
 map global user s ':surround<ret>' -docstring 'surround with: '
+
+map global goto 'k' 'j'
+map global goto 'j' 'h'
+map global goto 'i' 'k'
 
 # Clipboard yank
 hook global RegisterModified '"' %{ nop %sh{
@@ -97,6 +108,8 @@ hook global RegisterModified '"' %{ nop %sh{
 # map global normal <space>r ': lsp-rename<ret>'
 # map global normal <space>ca ': lsp-code-actions<ret>'
 # map global normal <space>f ': lsp-formatting-sync<ret>'
+
+set global tabstop 4
 
 # Detection
 # ‾‾‾‾‾‾‾‾‾

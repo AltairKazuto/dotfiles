@@ -33,8 +33,11 @@ background #000000
 cursor #dddddd
 
 # BEGIN_KITTY_FONTS
-font_family      family="Victor Mono"
-bold_font        auto
+font_family      family="Lilex"
+bold_font        family=Lilex style=Bold variable_name=Lilex
 italic_font      auto
 bold_italic_font auto
 # END_KITTY_FONTS
+
+# Line Gap
+modify_font cell_height 150%

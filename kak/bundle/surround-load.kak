@@ -1,2 +1,2 @@
-source "/root/.config/kak/bundle/surround/surround.kak"
+source "~/.config/kak/bundle/surround/surround.kak"
 trigger-user-hook bundle-loaded=surround

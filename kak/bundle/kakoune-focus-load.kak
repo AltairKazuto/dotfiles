@@ -1,2 +1,2 @@
-source "/root/.config/kak/bundle/kakoune-focus/focus.kak"
+source "~/.config/kak/bundle/kakoune-focus/focus.kak"
 trigger-user-hook bundle-loaded=kakoune-focus
