@@ -1,8 +1,9 @@
 *
 
 !.gitignore
-!kak/*
-!kak-lsp/*
-!zellij/*
-!kitty/*
-!yazi/*
+!kak/**
+!kak-lsp/**
+!zellij/**
+!kitty/**
+!yazi/**
+
