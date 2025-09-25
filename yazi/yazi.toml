@@ -1,0 +1,22 @@
+[mgr]
+show_hidden = true
+sort_by = "mtime"
+sort_reverse = true
+sort_dir_first = true
+
+[opener]
+edit = [
+{run = 'kitty kak  "$@"', block = false},
+{run = 'kitty sudo kak  "$@"', block = false},
+{run = 'kitty kak "$@"', block = true},
+{run = 'zed "$@"', block = false},
+]
+
+# kakoune = [
+# {run = 'zj-kak.zsh "$@"', desc = "Open in Kakoune in a new Zellij pane"},
+# ]
+
+# [open]
+# rules = [
+# {name = "**/*", use = "kakoune" },
+# ]

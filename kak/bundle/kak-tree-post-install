@@ -1,0 +1,3 @@
+
+    cargo install --path . --force --features "rust javascript"
+    cp rc/tree.kak ~/.config/kak/autoload/

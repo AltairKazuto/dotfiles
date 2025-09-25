@@ -1,0 +1,17 @@
+    # kak-lsp.toml
+
+    # Configuration for TypeScript files
+    [language-server.typescript]
+    filetypes = ["typescript", "javascript", "vue"]
+    roots = ["package.json", "tsconfig.json"]
+    command = "typescript-language-server"
+    args = ["--stdio"]
+    settings_section = "_"
+    # You might need to add a plugin for Vue-specific TypeScript features
+    [language-server.typescript.settings._]
+    # typescript.tsdk = "/usr/local/lib/node_modules/typescript/lib" # Adjust path as needed
+    plugins = [
+        { name = "@vue/typescript-plugin", location = "/usr/local/lib/node_modules/@vue/typescript-plugin", languages = ["vue"]}
+    ]
+
+    # Configuration for Vue files

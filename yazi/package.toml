@@ -1,0 +1,9 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:toggle-pane"
+rev = "d1c8baa"
+hash = "8a7c58225816a163a6e8730c0adafbc8"
+
+[[flavor.deps]]
+use = "marcosvnmelo/kanagawa-dragon"
+rev = "4905527"
+hash = "5fd7aa0bf4e7d9753ad8a4660a6eb94f"

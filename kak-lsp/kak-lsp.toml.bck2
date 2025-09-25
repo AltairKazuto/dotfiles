@@ -1,0 +1,7 @@
+# ~/.config/kak-lsp/kak-lsp.toml
+# ~/.config/kak-lsp/kak-lsp.toml
+
+[language-server.typescript-language-server]
+filetypes = ["vue", "javascript", "typescript"]
+initialization_options = { plugins = [ { name = "@vue/typescript-plugin", location = "/usr/local/lib/node_modules/@vue/typescript-plugin/index.js", languages = ["vue", "javascript", "typescript"] } ] }
+

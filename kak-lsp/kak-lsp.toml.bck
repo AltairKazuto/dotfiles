@@ -1,0 +1,29 @@
+# ~/.config/kak-lsp/kak-lsp.toml
+
+
+
+[language-server.typescript-language-server]
+filetypes = ["javascript", "typescript", "vue"]
+roots = ["package.json", "tsconfig.json", "jsconfig.json", ".git", ".hg"]
+command = "typescript-language-server"
+args = ["--stdio"]
+settings_section = "_"
+
+[language-server.typescript-language-server.settings._]
+plugins = [{name = "@vue/typescript-plugin", location = "/usr/local/lib/node_modules/@vue/typescript-plugin", languages = ["vue"]}]
+
+[language.vue]
+filetypes = ["typescript", "javascript", "vue"]
+roots = ["package.json", "tsconfig.json"]
+command = "typescript-language-server"
+args = ["--stdio"]
+
+
+[language-server.vue-language-server]
+filetypes = ["vue"]
+command = "vue-language-server"
+args = ["--stdio"]
+roots = ["package.json", "tsconfig.json", "jsconfig.json"]
+
+# ~/.config/kak-lsp/kak-lsp.toml
+

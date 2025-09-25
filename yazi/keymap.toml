@@ -1,0 +1,22 @@
+[mgr]
+prepend_keymap = [
+  { on = "<C-z>", run = "cd /home/ryvbiensentgabor/Projects", desc = "open projects directory" },
+  { on = "l", run = "enter", desc = "Enter child directory"},
+  { on = "j", run = "leave", desc = "Go back to the previous directory"},
+  { on = "i", run = "arrow prev", desc = "Go to the previous item"},
+  { on = "k", run = "arrow next", desc = "Go to the next item"},
+  { on = "e", run = "shell -- zellij run -- kak $@", desc = "kakoune"},
+  { on = "E", run = 'sudo shell -- zellij run -c -- kak "$@"', desc = "kakoune"},
+  { on = "<C-1>", run = "plugin toggle-pane max-parent", desc="Maximize or restore the preview pane"},
+  { on = "<A-1>", run = "plugin toggle-pane min-parent", desc="Show or hide the preview pane"},
+  { on = "<C-2>", run = "plugin toggle-pane max-current", desc="Maximize or restore the preview pane"},
+  { on = "<A-2>", run = "plugin toggle-pane min-current", desc="Show or hide the preview pane"},
+  { on = "<C-3>", run = "plugin toggle-pane max-preview", desc="Maximize or restore the preview pane"},
+  { on = "<A-3>", run = "plugin toggle-pane min-preview", desc="Show or hide the preview pane"},
+]
+
+[pick]
+prepend_keymap = [
+  { on = "i", run = "arrow prev", desc = "Go to the previous item"},
+  { on = "k", run = "arrow next", desc = "Go to the next item"},
+]
