@@ -24,20 +24,24 @@ wheel_scroll_min_lines 1
 enable_audio_bell no
 
 window_padding_width 4
-
-selection_foreground none
-selection_background none
-
-foreground #dddddd
-background #000000
-cursor #dddddd
+# selection_foreground none
+# selection_background none
+# foreground #dddddd
+# background #000000
+# cursor #dddddd
 
 # BEGIN_KITTY_FONTS
-font_family      family="Lilex"
-bold_font        family=Lilex style=Bold variable_name=Lilex
+font_family      family="FiraCode Nerd Font"
+bold_font        family='FiraCode Nerd Font' style=Bold
 italic_font      auto
 bold_italic_font auto
 # END_KITTY_FONTS
 
 # Line Gap
 modify_font cell_height 150%
+
+
+# BEGIN_KITTY_THEME
+# GitHub Dark
+include current-theme.conf
+# END_KITTY_THEME

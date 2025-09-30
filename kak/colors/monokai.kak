@@ -16,6 +16,7 @@ declare-option str purple 'rgb:ae81ff'
 declare-option str red 'rgb:f92672'
 declare-option str yellow 'rgb:e6db74'
 declare-option str dimgray 'rgb:464850'
+declare-option str azure 'rgb:74c3e4'
 
 declare-option str background %opt{black}
 declare-option str psel 'rgba:46465080'
@@ -70,7 +71,7 @@ set-face global LineNumbersWrapped "%opt{gray},%opt{black}+i"
 set-face global MenuForeground "%opt{dark},%opt{white}+b"
 set-face global MenuBackground "%opt{white},%opt{dark}"
 set-face global MenuInfo "%opt{orange},%opt{dark}"
-set-face global Information "%opt{yellow},%opt{black}"
+set-face global Information "%opt{azure},%opt{black}"
 set-face global Error "%opt{red},%opt{black}"
 set-face global StatusLine "%opt{white},%opt{black}"
 set-face global StatusLineMode "%opt{green},%opt{black}"

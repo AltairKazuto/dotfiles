@@ -1,7 +1,7 @@
 eval %sh{ kak-lsp --kakoune -s $kak_session }
 
 # ui
-colorscheme undoo
+colorscheme monokai
 set-option -add  global ui_options terminal_assistant=none
 set-option -add  global ui_options terminal_set_title=true
 set-option -add  global ui_options terminal_status_on_top=true
@@ -17,7 +17,7 @@ bundle kak-lsp https://github.com/kak-lsp/kak-lsp %{
 bundle kak-tree https://github.com/ul/kak-tree
 
 bundle-install-hook kak-tree %{
-    cargo install --path . --force --features "rust javascript"
+    cargo install --path . --force --features "rust javascript typescript php"
     cp rc/tree.kak ~/.config/kak/autoload/
 }
 
@@ -38,6 +38,12 @@ bundle powerline-kak https://github.com/andreyorst/powerline.kak
 powerline-start 
 
 bundle surround https://github.com/h-youhei/kakoune-surround
+
+bundle toggle https://codeberg.org/ficd/kak-toggle
+
+bundle mirro https://github.com/Delapouite/kakoune-mirror
+
+bundle buffers https://github.com/Delapouite/kakoune-buffers/blob/master/buffers.kak
 
 remove-hooks global lsp-filetype-.*
 
@@ -62,6 +68,20 @@ hook -group lsp-filetype-vue global BufSetOption filetype=(?:vue) %{
         # vue = {hybridMode = false }
     }
 }
+hook -group lsp-filetype-php global BufSetOption filetype=php %{
+    set-option buffer lsp_servers %{
+        [intelephense]
+        root_globs = [".htaccess", "composer.json"]
+        args = ["--stdio"]
+        settings_section = "intelephense"
+        [intelephense.settings.intelephense]
+        storagePath = "/tmp/intelephense"
+        # [phpactor]
+        # root_globs = ["composer.json", ".phpactor.json", ".phpactor.yml", ".git", ".hg"]
+        # args = ["language-server"]
+    }
+}
+
 
 hook -group lsp-language-id global BufCreate .*[.]vue %{
    set-option buffer lsp_language_id vue 
@@ -89,9 +109,16 @@ map global normal l l -docstring 'move right'
 map global normal '<a-k>' '<a-j>'
 map global normal '<a-j>' '<a-h>'
 
-map global user b ':buffer-previous<ret>' -docstring 'previous buffer'
-map global user n ':buffer-next<ret>' -docstring 'next buffer'
+map global normal q * -docstring 'select to search'
+
+map global user b ':pick-buffers<ret>' -docstring 'switch buffers'
 map global user s ':surround<ret>' -docstring 'surround with: '
+map global user c ':comment-line<ret>' -docstring 'comment line'
+map global user C ':comment-block<ret>' -docstring 'comment block'
+map global user f ':focus-toggle<ret>' -docstring 'focus on selections'
+map global user a '%' -docstring 'select all'
+map global user / '*' -docstring 'search selection'
+map global user h ':lsp-hover' -docstring 'hover cursor'
 
 map global goto 'k' 'j'
 map global goto 'j' 'h'

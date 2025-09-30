@@ -1,3 +1,3 @@
 
-    cargo install --path . --force --features "rust javascript"
+    cargo install --path . --force --features "rust javascript typescript php"
     cp rc/tree.kak ~/.config/kak/autoload/
