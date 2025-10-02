@@ -47,7 +47,7 @@ bundle buffers https://github.com/Delapouite/kakoune-buffers/blob/master/buffers
 
 remove-hooks global lsp-filetype-.*
 
-hook -group lsp-filetype-vue global BufSetOption filetype=(?:vue) %{
+hook -group lsp-filetype-vue global BufSetOption filetype=(?:vue|typescript) %{
     set-option buffer lsp_servers %{
         [typescript-language-server]
         root_globs = ["package.json", "tsconfig.json", "jsconfig.json", ".git", ".hg"]
@@ -85,6 +85,11 @@ hook -group lsp-filetype-php global BufSetOption filetype=php %{
 
 hook -group lsp-language-id global BufCreate .*[.]vue %{
    set-option buffer lsp_language_id vue 
+}
+
+hook global WinSetOption filetype=(javascript|typescript|vue|css|scss|json|markdown|yaml|html) %{
+    set-option buffer formatcmd "prettier --stdin-filepath=%val{buffile}"
+    hook buffer -group format BufWritePost .* format
 }
 
 # Highlights
